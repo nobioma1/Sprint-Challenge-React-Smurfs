@@ -1,11 +1,19 @@
 import React from 'react';
-import { FaTrash } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import { FaTrash, FaEdit } from 'react-icons/fa';
 
 const Smurf = props => {
   return (
     <div className="Smurf">
-      <h3>{props.name}</h3>
+      <h3>
+        {props.name}
+        <Link to={`/smurf-form/${props.id}`}>
+          <FaEdit />
+        </Link>
+      </h3>
+
       <strong>{props.height} tall</strong>
+
       <p>{props.age} smurf years old</p>
       <button onClick={() => props.deleteSmurf(props.id)}>
         <FaTrash />
