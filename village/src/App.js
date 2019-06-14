@@ -72,8 +72,8 @@ class App extends Component {
           <Link to="/">Smurf Village</Link>
           <Nav />
         </Header>
-        {this.state.smurfs.length > 0 && (
-          <MainContainer>
+        <MainContainer>
+          {this.state.smurfs.length > 0 && (
             <Route
               exact
               path="/"
@@ -85,37 +85,40 @@ class App extends Component {
                 />
               )}
             />
-            <Route
-              exact
-              path="/smurf/:id"
-              deleteSmurf={this.deleteSmurf}
-              render={props => (
-                <ViewSmurf
-                  {...props}
-                  getSmurf={this.getSmurf}
-                  deleteSmurf={this.deleteSmurf}
-                />
-              )}
-            />
-            <Route
-              exact
-              path="/smurf-form"
-              render={() => <SmurfForm createSmurf={this.addSmurf} />}
-            />
-            <Route
-              path="/smurf-form/:id"
-              render={props => (
-                <SmurfForm
-                  {...props}
-                  getSmurf={this.getSmurf}
-                  updateSmurf={this.updateSmurf}
-                />
-              )}
-            />
-          </MainContainer>
-        )}
+          )}
+          <Route
+            exact
+            path="/smurf/:id"
+            deleteSmurf={this.deleteSmurf}
+            render={props => (
+              <ViewSmurf
+                {...props}
+                getSmurf={this.getSmurf}
+                deleteSmurf={this.deleteSmurf}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/smurf-form"
+            render={() => <SmurfForm createSmurf={this.addSmurf} />}
+          />
+          <Route
+            path="/smurf-form/:id"
+            render={props => (
+              <SmurfForm
+                {...props}
+                getSmurf={this.getSmurf}
+                updateSmurf={this.updateSmurf}
+              />
+            )}
+          />
+        </MainContainer>
         <SmurfImage>
           <img src={smurf} alt="smurf" />
+          {this.state.smurfs.length === 0 && (
+            <h3>No Smurf Available, Add a smurf!!</h3>
+          )}
         </SmurfImage>
       </div>
     );

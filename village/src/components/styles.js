@@ -205,4 +205,6 @@ export const SmurfImage = styled.div`
   position: fixed;
   bottom: 0;
   z-index: 0;
+  display: flex;
+  width: 100%;
 `;
