@@ -40,6 +40,12 @@ class App extends Component {
       .catch(err => this.setState({ err }));
   };
 
+  getSmurf = id => {
+    this.fetchSmurfs();
+    const smurfs = this.state.smurfs;
+    return smurfs.filter(smurf => smurf.id === parseInt(id, 10));
+  };
+
   render() {
     return (
       <div className="App">
