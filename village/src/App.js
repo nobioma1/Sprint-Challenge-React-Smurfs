@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
+import { Header, MainContainer } from './components/styles';
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
@@ -66,9 +67,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Nav />
+        <Header>
+          <Link to="/">Smurf Village</Link>
+          <Nav />
+        </Header>
         {this.state.smurfs.length > 0 && (
-          <React.Fragment>
+          <MainContainer>
             <Route
               exact
               path="/"
@@ -107,7 +111,7 @@ class App extends Component {
                 />
               )}
             />
-          </React.Fragment>
+          </MainContainer>
         )}
       </div>
     );
