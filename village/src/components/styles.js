@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-
 const primaryColor = '#88ccff';
 const secondaryColor = '#808080';
 const normalFontSize = '18px';
@@ -15,6 +14,7 @@ export const Header = styled.div`
   background-color: ${primaryColor};
   font-size: 20px;
   padding: 20px;
+  z-index: 999;
 
   a {
     text-decoration: none;
@@ -121,6 +121,8 @@ export const SmurfContainer = styled.div`
   margin: 10px;
   border-radius: 5px;
   font-size: ${normalFontSize};
+  z-index: 100;
+  background-color: white;
   box-shadow: 3px 3px 10px -4px rgba(0,0,0,0.75);
 
 
@@ -199,5 +201,8 @@ export const SmurfDiv = styled.div`
   }
 `;
 
-
-
+export const SmurfImage = styled.div`
+  position: fixed;
+  bottom: 0;
+  z-index: 0;
+`;

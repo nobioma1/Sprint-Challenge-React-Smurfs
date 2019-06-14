@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Route, Link } from 'react-router-dom';
-import { Header, MainContainer } from './components/styles';
+import smurf from './assets/smurf.jpg';
 
 import './App.css';
+import { Header, MainContainer, SmurfImage } from './components/styles';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import Nav from './components/Nav';
@@ -113,6 +114,9 @@ class App extends Component {
             />
           </MainContainer>
         )}
+        <SmurfImage>
+          <img src={smurf} alt="smurf" />
+        </SmurfImage>
       </div>
     );
   }
