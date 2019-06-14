@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { FaTrash, FaEdit, FaChevronCircleLeft } from 'react-icons/fa';
+
+import { SmurfDiv, StyledButton, StyledLink } from './styles';
 
 class ViewSmurf extends Component {
   state = {
@@ -23,24 +24,24 @@ class ViewSmurf extends Component {
 
   render() {
     return (
-      <div className="Smurf">
-        <Link to="/">
+      <SmurfDiv>
+        <StyledLink to="/">
           <FaChevronCircleLeft />
           Back
-        </Link>
-        <h3>{this.state.name}</h3>
+        </StyledLink>
+        <h3>Name: {this.state.name}</h3>
 
-        <strong>{this.state.height} tall</strong>
+        <strong>Height: {this.state.height} tall</strong>
 
-        <p>{this.state.age} smurf years old</p>
-        <Link to={`/smurf-form/${this.state.id}`}>
+        <p>Age: {this.state.age} smurf years old</p>
+        <StyledLink to={`/smurf-form/${this.state.id}`}>
           <FaEdit /> Edit
-        </Link>
-        <button onClick={() => this.props.deleteSmurf(this.state.id)}>
+        </StyledLink>
+        <StyledButton delete onClick={() => this.props.deleteSmurf(this.state.id)}>
           <FaTrash />
           Delete
-        </button>
-      </div>
+        </StyledButton>
+      </SmurfDiv>
     );
   }
 }

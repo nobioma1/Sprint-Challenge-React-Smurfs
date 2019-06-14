@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaTrash, FaEdit } from 'react-icons/fa';
 
-import { SmurfContainer, DeleteButton } from './styles';
+import { SmurfContainer, StyledButton } from './styles';
 
 
 const Smurf = props => {
@@ -18,10 +18,10 @@ const Smurf = props => {
       <strong>{props.height} tall</strong>
 
       <p>{props.age} smurf years old</p>
-      <DeleteButton onClick={() => props.deleteSmurf(props.id)}>
+      <StyledButton delete onClick={() => props.deleteSmurf(props.id)}>
         <FaTrash />
         Delete
-      </DeleteButton>
+      </StyledButton>
     </SmurfContainer>
   );
 };

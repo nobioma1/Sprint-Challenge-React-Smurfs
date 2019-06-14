@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+
 
 const primaryColor = '#88ccff';
 const secondaryColor = '#808080';
@@ -35,9 +37,12 @@ export const NavContainer = styled.div`
 
 export const MainContainer = styled.div`
   margin-top: 80px;
+  display: flex;
+  justify-content: center;
 `;
 
 export const SmurfFormContainer = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -116,6 +121,8 @@ export const SmurfContainer = styled.div`
   margin: 10px;
   border-radius: 5px;
   font-size: ${normalFontSize};
+  box-shadow: 3px 3px 10px -4px rgba(0,0,0,0.75);
+
 
   h3 {
     display: flex;
@@ -130,15 +137,67 @@ export const SmurfContainer = styled.div`
   }
 `;
 
-export const DeleteButton = styled.button`
-  color: lightcoral;
+export const StyledButton = styled.button`
+  color: ${props => (props.delete ? 'lightcoral' : `${primaryColor}`)};
   padding: 5px;
-  border: 1px solid lightcoral;
+  margin: 5px 0;
+  border: 1px solid
+    ${props => (props.delete ? 'lightcoral' : `${primaryColor}`)};
   border-radius: 3px;
   cursor: pointer;
+  width: 100px;
+  align-self: flex-end;
 
   &:hover {
-    background-color: lightcoral;
+    background-color: ${props =>
+      props.delete ? 'lightcoral' : `${primaryColor}`};
     color: white;
   }
 `;
+
+export const StyledLink = styled(Link)`
+  color: ${primaryColor};
+  padding: 2px;
+  border: 1px solid ${primaryColor};
+  border-radius: 3px;
+  cursor: pointer;
+  text-decoration: none;
+  width: 100px;
+  align-self: flex-end;
+
+  &:hover {
+    background-color: ${primaryColor};
+    color: white;
+  }
+`;
+
+export const SmurfDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border: 1px solid ${secondaryColor};
+  width: 50%;
+  margin: 10px;
+  border-radius: 5px;
+  font-size: ${normalFontSize};
+  box-shadow: 3px 3px 10px -4px rgba(0,0,0,0.75);
+
+  h3 {
+    display: flex;
+    justify-content: space-between;
+
+    a {
+      color: black;
+      &:hover {
+        color: ${primaryColor};
+      }
+    }
+  }
+
+  h3, strong, p {
+    align-self: flex-start;
+  }
+`;
+
+
+
