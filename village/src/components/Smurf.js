@@ -2,9 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaTrash, FaEdit } from 'react-icons/fa';
 
+import { SmurfContainer, DeleteButton } from './styles';
+
+
 const Smurf = props => {
   return (
-    <div className="Smurf">
+    <SmurfContainer>
       <h3>
         <Link to={`/smurf/${props.id}`}>{props.name}</Link>
         <Link to={`/smurf-form/${props.id}`}>
@@ -15,11 +18,11 @@ const Smurf = props => {
       <strong>{props.height} tall</strong>
 
       <p>{props.age} smurf years old</p>
-      <button onClick={() => props.deleteSmurf(props.id)}>
+      <DeleteButton onClick={() => props.deleteSmurf(props.id)}>
         <FaTrash />
         Delete
-      </button>
-    </div>
+      </DeleteButton>
+    </SmurfContainer>
   );
 };
 

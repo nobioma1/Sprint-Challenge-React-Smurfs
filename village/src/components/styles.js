@@ -73,7 +73,7 @@ export const Button = styled.button`
   font-size: ${normalFontSize};
   border-radius: 3px;
   padding: 5px;
-  transition: .3s ease-in-out;
+  transition: 0.3s ease-in-out;
 
   &:hover {
     background-color: ${primaryColor};
@@ -87,7 +87,7 @@ export const Button = styled.button`
 
 export const Err = styled.div`
   width: 80%;
-  background-color: #FF6347;
+  background-color: #ff6347;
   padding: 10px;
   border-radius: 5px;
   color: white;
@@ -105,4 +105,40 @@ export const SmurfsContainer = styled.div`
   flex-wrap: wrap;
   padding: 20px;
   justify-content: center;
+`;
+
+export const SmurfContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border: 1px solid ${secondaryColor};
+  width: 250px;
+  margin: 10px;
+  border-radius: 5px;
+  font-size: ${normalFontSize};
+
+  h3 {
+    display: flex;
+    justify-content: space-between;
+
+    a {
+      color: black;
+      &:hover {
+        color: ${primaryColor};
+      }
+    }
+  }
+`;
+
+export const DeleteButton = styled.button`
+  color: lightcoral;
+  padding: 5px;
+  border: 1px solid lightcoral;
+  border-radius: 3px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: lightcoral;
+    color: white;
+  }
 `;
