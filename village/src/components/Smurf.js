@@ -15,7 +15,6 @@ const Smurf = props => {
       <strong>{props.height} tall</strong>
 
       <p>{props.age} smurf years old</p>
-      <FaEdit />
       <button onClick={() => props.deleteSmurf(props.id)}>
         <FaTrash />
         Delete

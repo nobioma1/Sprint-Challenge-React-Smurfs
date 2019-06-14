@@ -30,14 +30,20 @@ class App extends Component {
   addSmurf = newSmurf => {
     axios
       .post('http://localhost:3333/smurfs', newSmurf)
-      .then(res => this.setState({ smurfs: [...res.data] }))
+      .then(res => {
+        this.setState({ smurfs: [...res.data] });
+        this.props.history.push('/');
+      })
       .catch(err => this.setState({ err }));
   };
 
   deleteSmurf = id => {
     axios
       .delete(`http://localhost:3333/smurfs/${id}`)
-      .then(res => this.setState({ smurfs: [...res.data] }))
+      .then(res => {
+        this.setState({ smurfs: [...res.data] });
+        this.props.history.push('/');
+      })
       .catch(err => this.setState({ err }));
   };
 
@@ -50,7 +56,10 @@ class App extends Component {
   updateSmurf = (id, updated) => {
     axios
       .put(`http://localhost:3333/smurfs/${id}`, updated)
-      .then(res => this.setState({ smurfs: [...res.data] }))
+      .then(res => {
+        this.setState({ smurfs: [...res.data] });
+        this.props.history.push('/');
+      })
       .catch(err => this.setState({ err }));
   };
 
