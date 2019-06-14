@@ -6,6 +6,7 @@ import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import Nav from './components/Nav';
+import ViewSmurf from './components/ViewSmurf';
 
 class App extends Component {
   constructor(props) {
@@ -66,6 +67,18 @@ class App extends Component {
                 <Smurfs
                   smurfs={this.state.smurfs}
                   editSmurf={this.updateSmurf}
+                  deleteSmurf={this.deleteSmurf}
+                />
+              )}
+            />
+            <Route
+              exact
+              path="/smurf/:id"
+              deleteSmurf={this.deleteSmurf}
+              render={props => (
+                <ViewSmurf
+                  {...props}
+                  getSmurf={this.getSmurf}
                   deleteSmurf={this.deleteSmurf}
                 />
               )}
