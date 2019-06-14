@@ -46,6 +46,13 @@ class App extends Component {
     return smurfs.filter(smurf => smurf.id === parseInt(id, 10));
   };
 
+  updateSmurf = (id, updated) => {
+    axios
+      .put(`http://localhost:3333/smurfs/${id}`, updated)
+      .then(res => this.setState({ smurfs: [...res.data] }))
+      .catch(err => this.setState({ err }));
+  };
+
   render() {
     return (
       <div className="App">
@@ -55,11 +62,28 @@ class App extends Component {
             <Route
               exact
               path="/"
-              render={() => <Smurfs smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf}/>}
+              render={() => (
+                <Smurfs
+                  smurfs={this.state.smurfs}
+                  editSmurf={this.updateSmurf}
+                  deleteSmurf={this.deleteSmurf}
+                />
+              )}
             />
             <Route
+              exact
               path="/smurf-form"
               render={() => <SmurfForm createSmurf={this.addSmurf} />}
+            />
+            <Route
+              path="/smurf-form/:id"
+              render={props => (
+                <SmurfForm
+                  {...props}
+                  getSmurf={this.getSmurf}
+                  updateSmurf={this.updateSmurf}
+                />
+              )}
             />
           </React.Fragment>
         )}
