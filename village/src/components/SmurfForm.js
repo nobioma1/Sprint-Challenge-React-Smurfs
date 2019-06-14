@@ -22,8 +22,12 @@ class SmurfForm extends Component {
     });
   };
 
-  handleInputChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
+  update = () => {
+    const smurfId = this.props.match.params.id;
+    const smurf = { ...this.state };
+    this.props.updateSmurf(smurfId, smurf);
+    this.clearInput();
+  };
   };
 
   render() {
