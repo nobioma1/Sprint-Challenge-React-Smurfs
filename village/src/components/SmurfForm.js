@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { FormSmurf, SmurfFormContainer, Button, Err } from './styles';
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -71,9 +72,9 @@ class SmurfForm extends Component {
 
   render() {
     return (
-      <div className="SmurfForm">
-        {this.state.err && this.state.err}
-        <form onSubmit={this.formSubmit}>
+      <SmurfFormContainer>
+        {this.state.err && <Err>{this.state.err}</Err>}
+        <FormSmurf onSubmit={this.formSubmit}>
           <input
             onChange={this.handleInputChange}
             placeholder="name"
@@ -92,11 +93,11 @@ class SmurfForm extends Component {
             value={this.state.height}
             name="height"
           />
-          <button type="submit">
+          <Button type="submit">
             {this.state.isEdit ? 'Save Changes' : 'Add to the village'}
-          </button>
-        </form>
-      </div>
+          </Button>
+        </FormSmurf>
+      </SmurfFormContainer>
     );
   }
 }
