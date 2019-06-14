@@ -92,3 +92,17 @@ export const Err = styled.div`
   border-radius: 5px;
   color: white;
 `;
+
+export const SmurfsDiv = styled.div`
+  h1 {
+    color: ${secondaryColor};
+    margin: 0;
+  }
+`;
+
+export const SmurfsContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  justify-content: center;
+`;
