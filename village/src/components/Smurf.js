@@ -6,7 +6,7 @@ const Smurf = props => {
   return (
     <div className="Smurf">
       <h3>
-        {props.name}
+        <Link to={`/smurf/${props.id}`}>{props.name}</Link>
         <Link to={`/smurf-form/${props.id}`}>
           <FaEdit />
         </Link>
@@ -15,6 +15,7 @@ const Smurf = props => {
       <strong>{props.height} tall</strong>
 
       <p>{props.age} smurf years old</p>
+      <FaEdit />
       <button onClick={() => props.deleteSmurf(props.id)}>
         <FaTrash />
         Delete
